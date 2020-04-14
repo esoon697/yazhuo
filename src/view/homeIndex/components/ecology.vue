@@ -142,7 +142,7 @@ export default {
       display: inline-block;
       width: 144px;
       height: 8px;
-      background: url(http://huangqinchao.host3v.vip/yazhuo/online.png);
+      background: url(http://182.148.48.236:54321/source/images/ecology_active.png);
       background-size: 100% 100% !important;
       background-repeat: no-repeat !important;
       position: absolute;

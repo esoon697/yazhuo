@@ -37,7 +37,7 @@
             <img :src="this.base+'log1.png'" @click="doWxLogin()"/>
           </a>
           <a href="javascript:;" class="icons icon2">
-            <img :src="this.base+'log2.png'" />
+            <img :src="this.base+'log2.png'" @click="doDingLogin()"/>
           </a>
         </div>
         <div class="forgetDiv inpDivs">
@@ -134,6 +134,11 @@ export default {
         if (res.code == 200){
           window.location.href = res.data
         }
+      })
+    },
+    doDingLogin () {
+      let dd = this.$dd
+      dd.ready(function () {
       })
     }
   }

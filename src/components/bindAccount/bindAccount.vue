@@ -88,7 +88,14 @@ export default {
           // 登录成功
           let token = res.data.authorization
           localStorage.setItem('token', token)
+          this.$store.state.btnShow = false
+          if (res.data.usWechat.headImgUrl) {
+            let headImgUrl = res.data.usWechat.headImgUrl
+            localStorage.setItem('headImgUrl', headImgUrl)
+            this.$store.state.headImgUrl = headImgUrl
+          }
           this.close()
+          // 应该在这两个地方写
         }
       })
     }

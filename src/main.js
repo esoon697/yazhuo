@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import {router} from '@/router/index.js'
+import store from './store/index'
 import api from '@/axios/api'
+import * as dd from 'dingtalk-jsapi'
 // 引入工具文件
 import '@/utils/tool.js'
 // 按需引入ant组件
@@ -12,6 +14,8 @@ Vue.use(Tooltip);
 Vue.use(Popover);
 Vue.prototype.$message = Message
 Vue.prototype.$api = api; // 将api挂载到vue的原型上
+
+Vue.prototype.$dd = dd; // 将api挂载到vue的原型上
 
 // 全局注册header
 import headerAsideMenu from './components/asideMenu/headerAsideMenu.vue'
@@ -37,5 +41,6 @@ Vue.prototype.base = base
 
 new Vue({
     router,
+    store,
     render: (h) => h(App),
 }).$mount('#app')

@@ -23,16 +23,21 @@
       <input type="text" placeholder="请输入关键词" class="search-input" />
       <img :src="base + 'search-icon.png'" alt="" class="search-icon" @click="toSearch()">
     </div>
-    <div class="button-group" v-show="btnShow">
-      <a :href="item.url" v-for="item in btns" :key="item.id" class="link">{{item.name}}</a>
+    <div class="button-group" v-if="btnShow">
+        <a :href="item.url" v-for="item in btns" :key="item.id" class="link">{{item.name}}</a>
     </div>
+    <a v-else href="http://personal.yazhuokj.com/">
+      <img class="avatar" :src="headImgUrl">
+    </a>
   </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
   data() {
     return {
-      btnShow: false,
+      // avatar: this.headImgUrl,
+      // btnShow: false,
       active: 0,
       logoText: "YAZHUO亚卓教育",
       isNavBg: false,
@@ -78,10 +83,14 @@ export default {
       ]
     }
   },
+    computed: {
+      ...mapState(['btnShow', 'headImgUrl']),
+    },
     created () {
       this.getNavBarInfo()
       this.isCurrent()
-      this.btnShow = this.isblank(localStorage.getItem('token'))
+      // 问题出在这里，
+      // this.btnShow = this.isblank(localStorage.getItem('headImgUrl'))
     },
     mounted() {
       this.$nextTick(() => {
@@ -155,9 +164,15 @@ export default {
             _this.isNavBg = false;
           }
         },
-    }
+    },
+    // watch: {
+    //   headImgUrl (o, n) {
+    //     this.headImgUrl =  o
+    //     this.avatar = o
+    //     console.log(this.avatar)
+    //   }
+    // }
 }
- 
 </script>
 <style lang="less">
 @media screen and (max-width: 1640px) {
@@ -274,6 +289,12 @@ export default {
 .button-group {
   border: #fff 1px solid;
   padding: 3px 8px;
+}
+.avatar{
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 .more {
   &:after {

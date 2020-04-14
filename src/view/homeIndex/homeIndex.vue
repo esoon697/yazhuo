@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 头部 -->
-    <header-asideMenu />
+    <header-asideMenu/>
     <!-- 亚卓教育素养培养生态空间 -->
     <banner />
     <!-- 亚卓教育素养培养全场景覆盖 -->
@@ -27,6 +27,7 @@ import curriculum from "./components/curriculum.vue";
 import wisdom from "./components/wisdom.vue";
 import solve from "./components/solve.vue";
 import ecology from "./components/ecology.vue";
+import {mapState} from 'vuex'
 export default {
   components: {
     banner,
@@ -38,11 +39,18 @@ export default {
   data () {
     return{
       userAgent: '',
-      bindShow: false // 绑定账户弹窗
+      bindShow: false, // 绑定账户弹窗
+      // headImgUrl: ''
     }
   },
+  computed: {
+    // ...mapState(['btnShow']),
+  },
   mounted () {
+    // this.dingdingInt()
+    // console.log('bbbbbbbbbbbbbbbbbbbbbbbbbb', this.btnShow)
     this.init()
+    this.getHeadImgUrl()
   },
   methods:{
     // 获取地址栏中的code
@@ -72,7 +80,7 @@ export default {
         this.judgeUserType()
          let code = this.getQueryString('code')
          // code获取到之后立即更新浏览器中url地址的显示 
-         history.pushState({},'官网','http://portal.yazhuokj.com')
+         history.pushState({},'官网','http://portal.yazhuokj.com/home')
          this.$api.getBind({
           //  code: '061Sniq817EzxL11v9s81wSqq81Sniq8',
            code: code,
@@ -83,6 +91,16 @@ export default {
                 //  已关联,视为登录流程完全成功,将token存到localstorage
                 let token = res.data.authorization
                 localStorage.setItem('token', token)
+                this.$store.state.btnShow = false
+                // 应该在这两个地方写
+                if (res.data.usWechat.headImgUrl) {
+                  let headImgUrl = res.data.usWechat.headImgUrl
+                  localStorage.setItem('headImgUrl', headImgUrl)
+                  this.$store.state.headImgUrl = headImgUrl
+                }else{
+                  console.log('usWechat或headImgUrl为空')
+                  // this.headImgUrl = 'http://182.148.48.236:54321/source/educationPlatform/avatar.jpeg'
+                }
             } else{
                 //  未关联,将accessToken和openid存到session,并弹出绑定账户的弹窗
                 let accessToken = res.data.usWechat.accessToken
@@ -90,11 +108,46 @@ export default {
                 sessionStorage.setItem('accessToken', accessToken)
                 sessionStorage.setItem('openid', openid)
                 this.bindShow = true
+                this.$store.state.btnShow = false
             }
+            console.log(res.data)
+            // if (res.data.usWechat.headImgUrl) {
+            //   this.headImgUrl = res.data.usWechat.headImgUrl
+            // }else{
+            //   console.log('usWechat或headImgUrl为空')
+            //   this.headImgUrl = 'http://182.148.48.236:54321/source/educationPlatform/avatar.jpeg'
+            // }
            }
          })
       }
+    },
+    getHeadImgUrl () {
+      if (localStorage.getItem('headImgUrl')) {
+        this.$store.state.headImgUrl = localStorage.getItem('headImgUrl')
+      }
+      if (localStorage.getItem('token')) {
+        this.$store.state.btnShow = false
+      }
     }
+    // dingdingInt () {
+    //   let dd = this.$dd
+    //   dd.ready(function () {
+    //     dd.runtime.permission.requestAuthCode({
+    //         corpId: "ding5f7acb9ee337eab8a39a90f97fcb1e09",
+    //         onSuccess: function(result) {
+    //           console.log(result)
+    //         /*{
+    //             code: 'hYLK98jkf0m' //string authCode
+    //         }*/
+    //         },
+    //         onFail : function(err) {
+    //           alert('error' + err)
+    //           console.log(err)
+    //         }
+        
+    //     })
+    //   })
+    // }
   }
 }
 </script>
