@@ -72,6 +72,9 @@ export default {
     this.judgeUserType()
   },
   methods: {
+    init () {
+      this.orient = this.$route.query.orient
+    },
     // 验证token是否失效
     checkToken () {
       let token = localStorage.getItem('token')
@@ -81,7 +84,7 @@ export default {
       this.$api.checkTk({
         jwt: token
       }).then(res => {
-        if (res.code == 200) {
+        if (res.code == 200 && res.data == 0) {
           this.$router.push('/home')
         }
       })
@@ -108,6 +111,7 @@ export default {
           //  登录成功之后如果有重定向路径则跳转过去，没有则跳转首页
           if (this.redirectPath) {
             this.$router.push(this.redirectPath)
+            // this.$router.push(this.orient)
           } else {
             this.$router.push('/home')
           }

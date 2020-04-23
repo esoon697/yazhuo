@@ -26,7 +26,7 @@
     <div class="button-group" v-if="btnShow">
         <a :href="item.url" v-for="item in btns" :key="item.id" class="link">{{item.name}}</a>
     </div>
-    <a v-else href="http://personal.yazhuokj.com/">
+    <a v-else href="javascript:;" @click="goPersonalCenter">
       <img class="avatar" :src="headImgUrl">
     </a>
   </div>
@@ -89,6 +89,7 @@ export default {
     created () {
       this.getNavBarInfo()
       this.isCurrent()
+      this.getHeadImgUrl()
       // 问题出在这里，
       // this.btnShow = this.isblank(localStorage.getItem('headImgUrl'))
     },
@@ -164,6 +165,39 @@ export default {
             _this.isNavBg = false;
           }
         },
+        getHeadImgUrl () {
+          if (localStorage.getItem('headImgUrl')) {
+            this.$store.state.headImgUrl = localStorage.getItem('headImgUrl')
+          }
+          if (localStorage.getItem('token')) {
+            this.$store.state.btnShow = false
+          }
+        },
+        goPersonalCenter () {
+          // let targetUrl = 'http://10.10.10.213:8082/'
+          let targetUrl = 'http://personal.yazhuokj.com'
+          let token = localStorage.getItem('token')
+          this.url = targetUrl + '?token=' + token + '&headImgUrl=' + this.headImgUrl
+          console.log(this.url)
+          this.checkToken()
+        },
+        // 验证token是否失效
+        checkToken () {
+          let token = localStorage.getItem('token')
+          if (this.isblank(token)){
+            return false
+          }
+          this.$api.checkTk({
+            jwt: token
+          }).then(res => {
+            if (res.code == 200 && res.data == 0) {
+              window.location.href = this.url
+            } else {
+              this.$message.warning('登录失效！请重新登录')
+              this.$router.push('/login')
+            }
+          })
+        }
     },
     // watch: {
     //   headImgUrl (o, n) {

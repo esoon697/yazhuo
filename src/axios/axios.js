@@ -16,11 +16,11 @@ let config = {
 if (process.env.NODE_ENV == 'development') {
   // dev开发环境
   // config.baseURL = 'http://182.148.48.236:23432'
-  config.baseURL = 'api'
-  // config.baseURL = 'http://api.yazhuokj.com/'
+  // config.baseURL = 'api'
+  config.baseURL = 'http://api.yazhuokj.com'
 } else if (process.env.NODE_ENV == 'production') {
   // build生产环境
-  config.baseURL = 'http://api.yazhuokj.com/'
+  config.baseURL = 'http://api.yazhuokj.com'
   // config.baseURL = 'http://182.148.48.236:23432'
 }
 

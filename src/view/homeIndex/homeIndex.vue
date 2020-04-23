@@ -48,9 +48,8 @@ export default {
   },
   mounted () {
     // this.dingdingInt()
-    // console.log('bbbbbbbbbbbbbbbbbbbbbbbbbb', this.btnShow)
     this.init()
-    this.getHeadImgUrl()
+    // this.getHeadImgUrl()
   },
   methods:{
     // 获取地址栏中的code
@@ -92,7 +91,7 @@ export default {
                 let token = res.data.authorization
                 localStorage.setItem('token', token)
                 this.$store.state.btnShow = false
-                // 应该在这两个地方写
+                // 获取用户头像隐藏登录按钮
                 if (res.data.usWechat.headImgUrl) {
                   let headImgUrl = res.data.usWechat.headImgUrl
                   localStorage.setItem('headImgUrl', headImgUrl)
@@ -110,25 +109,10 @@ export default {
                 this.bindShow = true
                 this.$store.state.btnShow = false
             }
-            console.log(res.data)
-            // if (res.data.usWechat.headImgUrl) {
-            //   this.headImgUrl = res.data.usWechat.headImgUrl
-            // }else{
-            //   console.log('usWechat或headImgUrl为空')
-            //   this.headImgUrl = 'http://182.148.48.236:54321/source/educationPlatform/avatar.jpeg'
-            // }
            }
          })
       }
     },
-    getHeadImgUrl () {
-      if (localStorage.getItem('headImgUrl')) {
-        this.$store.state.headImgUrl = localStorage.getItem('headImgUrl')
-      }
-      if (localStorage.getItem('token')) {
-        this.$store.state.btnShow = false
-      }
-    }
     // dingdingInt () {
     //   let dd = this.$dd
     //   dd.ready(function () {
