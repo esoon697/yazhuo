@@ -174,8 +174,8 @@ export default {
           }
         },
         goPersonalCenter () {
-          // let targetUrl = 'http://10.10.10.213:8082/'
-          let targetUrl = 'http://personal.yazhuokj.com'
+          let targetUrl = 'http://10.10.10.213:8082/'
+          // let targetUrl = 'http://personal.yazhuokj.com'
           let token = localStorage.getItem('token')
           this.url = targetUrl + '?token=' + token + '&headImgUrl=' + this.headImgUrl
           console.log(this.url)
@@ -185,6 +185,7 @@ export default {
         checkToken () {
           let token = localStorage.getItem('token')
           if (this.isblank(token)){
+            this.$router.push('/login')
             return false
           }
           this.$api.checkTk({
