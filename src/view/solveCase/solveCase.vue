@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <header-asideMenu />
     <!-- 横幅banner 开始-->
-    <div class="solveBanner" :style="{background:`url(${this.base+'solveBg.jpg'})`}"></div>
+    <div class="solveBanner"></div>
     <!-- 横幅banner 结束-->
     <!-- 图文列表 开始 -->
     <div class="solveWid100">
@@ -126,12 +126,10 @@ img {
 }
 // 横幅banner
 .solveBanner {
-  background: #1e9fff;
   height: 600px;
-  display: block;
-  width: 100%;
-  background-position: center center !important;
-  background-size: cover !important;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(http://182.148.48.236:54321/source/images/solveBg.jpg);
 }
 // 图文列表
 .solveList {
@@ -189,6 +187,15 @@ img {
       text-align: justify;
       line-height: 30px;
       height: 60px;
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .solveList{
+    width: 100%;
+    .boxlink{
+      width: 47%;
+      margin-right: 0;
     }
   }
 }

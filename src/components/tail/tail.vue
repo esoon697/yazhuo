@@ -133,10 +133,11 @@ p {
   padding: 40px 0 20px;
 }
 .footer .footerLink {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
   padding-bottom: 10px;
+  box-sizing: border-box;
 }
 .footerCopy {
   width: 100%;
@@ -154,7 +155,6 @@ p {
 .footerLeft {
   float: left;
   width: 40%;
-  background: -pink;
 }
 .footerLeft .lines {
   padding-bottom: 15px;
@@ -205,13 +205,14 @@ p {
 }
 /* 右侧 */
 .footerRight {
-  float: right;
+  /* float: right; */
+  display: flex;
   width: 60%;
-  background: -greenyellow;
   overflow: hidden;
 }
 .footerRight .onebox {
-  float: left;
+  /* float: left; */
+  display:flex;
   overflow: hidden;
 }
 .footerRight .onebox .p1 {

@@ -1,7 +1,7 @@
 <template>
   <div class="app" :style="{background:`url(${this.base+'wisdbg.png'})`}">
     <!-- <div class="boxHead">智慧教学</div> -->
-    <partTitle  :isWhite='true' :titleText="'智慧教学'"/>
+    <partTitle  :isWhite='true' :titleText="'智慧课堂'"/>
     <div class="boxBody">
       <!-- 1/ 开始 -->
       <div class="left">
@@ -48,22 +48,22 @@
       <div class="right">
         <div class="list0">
           <div class="text">
-            <div class="title">{{list1.title}}</div>
-            <div class="ksyWord">关键字：{{list1.stitle}}</div>
-            <div class="content">{{list1.content}}</div>
+            <div class="title">{{list3.title}}</div>
+            <div class="ksyWord">关键字：{{list3.stitle}}</div>
+            <div class="content">{{list3.content}}</div>
           </div>
           <div class="icon">
-            <img :src="list1.picture" class="img" />
+            <img :src="list3.picture" class="img" />
           </div>
         </div>
         <div class="list0">
           <div class="text">
-            <div class="title">{{list2.title}}</div>
-            <div class="ksyWord">关键字：{{list2.stitle}}</div>
-            <div class="content">{{list2.content}}</div>
+            <div class="title">{{list4.title}}</div>
+            <div class="ksyWord">关键字：{{list4.stitle}}</div>
+            <div class="content">{{list4.content}}</div>
           </div>
           <div class="icon">
-            <img :src="list2.picture" class="img" />
+            <img :src="list4.picture" class="img" />
           </div>
         </div>
       </div>
@@ -109,6 +109,7 @@ export default {
             this.list2 = lists[1];
             this.list3 = lists[2];
             this.list4 = lists[3];
+            console.log('listsssssssssssssssssssss' ,lists)
           }
         }
       })

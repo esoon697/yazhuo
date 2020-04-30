@@ -1,49 +1,66 @@
 <template>
   <div>
-    <!-- 产品体系 开始 -->
+    <!-- 产品体系 开始-->
     <div class="system">
       <!-- 定位闹钟 -->
-      <!-- <div class="systemtime" :style="{background:`url(${this.base+'sysTiem.png'})`}"></div> -->
+      <div class="systeperson" :style="{background:`url(${this.base+'sysPerson.png'})`}"></div>
       <!-- 定位背景1 -->
-      <div class="systembgs systembg1" :style="{background:`url(${this.base+'eduflbg2.png'})`}"></div>
+      <div class="systembgs systembg1" :style="{background:`url(${this.base+'edufrbg2.png'})`}"></div>
       <!-- 定位背景2 -->
-      <div class="systembgs systembg2" :style="{background:`url(${this.base+'eduflbg1.png'})`}"></div>
+      <div class="systembgs systembg2" :style="{background:`url(${this.base+'edufrbg1.png'})`}"></div>
       <!-- 以下开始正文了 -->
-      <!-- <p class="flex-center system-title">产品体系</p> -->
+      <!-- <p class="flex-center system-title">产/品/体/系</p> -->
       <partTitle :isWhite='false' :titleText="'系列课程'"/>
-      <div class="system-content" :style="{backgroundImage:`url(${this.base+'edulines.png'})`}">
-        <div class="system-two flex-between">
+      <div class="system-content">
+        <div class="system-three flex-between">
           <div class="flex-center-y">
-            <img :src="this.base+'proSys2.png'" />
-            <span>班主任成长梦工场</span>
+            <img :src="this.base+'famSys1.png'" />
+            <span>财商系列</span>
           </div>
-          <p>教育信息化背景下的“班主任职业能力构建与提升”，班主任成长路上好伙伴</p>
-        </div>
-        <div class="system-one flex-between">
-          <div class="flex-center-y">
-            <img :src="this.base+'proSys1.png'" />
-            <span>素养播种计划</span>
-          </div>
-          <p>从职业角色、工作胜任、生涯发展三维度培养学生职业素养</p>
+          <p>锻炼财商思维，培养理财技能，规避财富风险，拥抱财富人生</p>
         </div>
         <div class="system-three flex-between">
           <div class="flex-center-y">
-            <img :src="this.base+'proSys3.png'" />
-            <span>公共基础课程辅助数字资源库</span>
+            <img :src="this.base+'famSys2.png'" />
+            <span>青春健康系列</span>
           </div>
-          <p>聚焦新课标学科素养 挖掘公共基础课育人价值</p>
+          <p>用青春健康知识，守护孩子身心健康</p>
+        </div>
+        <div class="system-three flex-between">
+          <div class="flex-center-y">
+            <img :src="this.base+'famSys3.png'" />
+            <span>艺术审美系列</span>
+          </div>
+          <p>奠定美育基础，提高审美情趣</p>
+        </div>
+        <div class="system-three flex-between">
+          <div class="flex-center-y">
+            <img :src="this.base+'famSys4.png'" />
+            <span>品格培养系列</span>
+          </div>
+          <p>培养诚实、负责、自信、乐观的品质，铸就孩子的幸福人生</p>
+        </div>
+        <div class="system-three flex-between">
+          <div class="flex-center-y">
+            <img :src="this.base+'famSys5.png'" />
+            <span>科技系列</span>
+          </div>
+          <p>了解科技发展的前世今生，适应未来生活</p>
         </div>
       </div>
     </div>
-    <!-- 产品体系 结束 -->
-    <!-- 课程结构 开始 -->
+    <!-- 产品体系 结束-->
+    <!-- 课程结构 开始-->
     <div class="lesson">
-      <!-- <p class="lesson-title flex-center">课程结构</p> -->
+      <!-- <p class="lesson-title flex-center">课/程/结/构</p> -->
       <partTitle :isWhite='false' :titleText="'课程结构'"/>
       <!-- 多套一层避免里面的元素定位距离小屏幕不兼容 -->
-      <div class="lesson-inner-wrap" :style="{background:`url(${this.base+'lessonBg.png'})`}">
+      <div class="lesson-inner-wrap" :style="{background:`url(${this.base+'basicBg.png'})`}">
         <div class="lesson-inner">
           <!-- 顺序为顺时针，最后一个div是中间最大的 -->
+          <!-- 原图片 basicSmall.png -->
+          <!-- basicBig.png -->
+          <!-- 现修正为 syssmall.png、sysbig.png -->
           <div
             class="lesson-item flex-center"
             :style="{background:`url(${this.base+'syssmall.png'})`}"
@@ -78,39 +95,39 @@
         </div>
       </div>
     </div>
-    <!-- 课程结构 结束 -->
+    <!-- 课程结构 结束-->
     <!-- 亮点优势 开始 -->
     <div class="advantage">
-      <!-- <p class="advantage-title flex-center">亮点优势</p> -->
+      <!-- <p class="advantage-title flex-center">亮/点/优/势</p> -->
       <partTitle :isWhite='false' :titleText="'亮点优势'"/>
       <div class="advantage-inner flex-center-y">
         <!-- 1/4海量资源 -->
         <div class="advantage-inner-item">
-          <img :src="this.base+'linagfl1.png'" />
+          <img :src="this.base+'liangfr1.png'" />
           <span>海量资源</span>
           <div class="line"></div>
-          <p>汇集近千个精心打磨的教学设计、丰富的案例、有趣的活动、大量的拓展资源等，满足教师课前备课、课中授课以及学生课后拓展学习、提升自我素养的需求。</p>
+          <p>共438集，包含5000分钟微课视频，涉及领域广、内容丰富，全方位地培养孩子的综合素养。</p>
         </div>
         <!-- 2/4权威专家 -->
         <div class="advantage-inner-item">
-          <img :src="this.base+'linagfl2.png'" />
-          <span>权威专家</span>
+          <img :src="this.base+'liangfr2.png'" />
+          <span>权威性</span>
           <div class="line"></div>
-          <p>由中国人民大学心理研究所所长俞国良教授、北京师范大学公民与道德教育研究中心主任檀传宝教授、华东师范大学职业教育与成人教育研究所徐国庆教授、中国职教学会德育工作委员会副主任汪永智教授领衔，北大、清华、北师大、人民大学、中国教育科学研究院、华东师大、北航、电子科大、华南理工、西南大学等50余位知名专家学者教育科技机构国内、众多中职德育领域课程研究与课。</p>
+          <p>由国内顶尖专家和20余省近百位优秀名师遵照国际通用的《21世纪核心素养》的内容研发。</p>
         </div>
         <!-- 3/4系统科学 -->
         <div class="advantage-inner-item">
-          <img :src="this.base+'linagfl3.png'" />
-          <span>系统科学</span>
+          <img :src="this.base+'liangfr3.png'" />
+          <span>实用性</span>
           <div class="line"></div>
-          <p>遵照教育部颁发的《中等职业学校公共基础课课程方案》、《中国职业教育学生发展核心素养》等文件纲领要求，根据中职学生的身心特点和职业发展需求设计，适应新时代发展趋势，通过高质量、系统性的课程资源，提高中等职业学校德育、公共基础课及职业素养建设水平。</p>
+          <p>根据孩子的心理行为和智力发展水平进行设计，帮助家长有效开展家庭教育。</p>
         </div>
         <!-- 4/4信息化学习 -->
         <div class="advantage-inner-item">
-          <img :src="this.base+'linagfl4.png'" />
-          <span>信息化学习</span>
+          <img :src="this.base+'liangfr4.png'" />
+          <span>顺应“碎片化”学习习惯</span>
           <div class="line"></div>
-          <p>坚持以学定教，结合学习平台（手机端、PC端），满足教师和学生在线学习、在线课程建设、教学管理等功能，促进广大中职学校教育信息化的发展。</p>
+          <p>10-20分钟不等时长的视频，多平台投放，实现处处能学、时时可学。</p>
         </div>
       </div>
     </div>
@@ -133,6 +150,8 @@ export default {
 .system {
   width: 100%;
   padding: 80px 0 30px;
+  background-position: 0 bottom;
+  background-repeat: no-repeat !important;
   position: relative;
   .systembgs {
     position: absolute;
@@ -148,11 +167,11 @@ export default {
   .systembg2 {
     height: 285px;
   }
-  .systemtime {
-    width: 261px;
-    height: 194px;
-    top: 115px;
-    right: 17px;
+  .systeperson {
+    width: 231px;
+    height: 245px;
+    bottom: 0;
+    left: 60px;
     display: block;
     position: absolute;
     background-repeat: no-repeat !important;
@@ -178,56 +197,22 @@ export default {
     }
   }
   .system-content {
+    background: rgba(12, 102, 192, 1);
+    opacity: 0.77;
     max-width: 1200px;
     margin: 0 auto;
     height: 430px;
     background-repeat: no-repeat !important;
-    background-size: 100% 100% !important;
-    margin: 0 auto;
     padding: 83px 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    .system-one {
-      padding: 0 40px 0 93px;
-      img {
-        width: 44px;
-        height: 44px;
-      }
-      span {
-        font-size: 20px;
-        color: #fff;
-        margin-left: 20px;
-      }
-      p {
-        font-size: 14px;
-        color: #fff;
-        width: 480px;
-      }
-    }
-    .system-two {
-      padding: 0 40px 0 93px;
-      img {
-        width: 44px;
-        height: 44px;
-      }
-      span {
-        font-size: 20px;
-        color: #fff;
-        margin-left: 20px;
-      }
-      p {
-        font-size: 14px;
-        color: #fff;
-        width: 480px;
-      }
-    }
     .system-three {
       padding: 0 40px 0 93px;
       img {
-        width: 44px;
-        height: 44px;
+        width: 41px;
+        height: 37px;
       }
       span {
         font-size: 20px;
@@ -237,7 +222,7 @@ export default {
       p {
         font-size: 14px;
         color: #fff;
-        width: 480px;
+        width: 410px;
       }
     }
   }
@@ -390,9 +375,18 @@ export default {
 }
 /* 1600px */
 @media (max-width: 1600px) {
-  .system .systemtime {
-    width: 221px;
-    height: 164px;
+  .system .systeperson {
+    width: 186px;
+    height: 186px;
+    left: 30px;
+  }
+}
+/* 1366px */
+@media (max-width: 1366px) {
+  .system .systeperson {
+    width: 160px;
+    height: 160px;
+    left: 30px;
   }
 }
 </style>

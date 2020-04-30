@@ -209,8 +209,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: -pink;
-    padding-bottom: 60px;
+    // background: -pink;
+    // padding-bottom: 60px;
     // .titles {
     //   width: 100%;
     //   text-align: center;
@@ -233,10 +233,10 @@ export default {
     // }
     .class {
       text-align: center;
-      width: 1200px;
+      max-width: 1200px;
+      margin: auto;
       .boxHead {
         display: flex;
-        flex-direction: row;
         justify-content: flex-end;
         align-items: center;
         .tablink-active {
@@ -246,7 +246,7 @@ export default {
         }
         .tablink {
           height: 50px;
-          width: 160px;
+          width: 162px;
           color: #333;
           font-size: 22px;
           background: #fff;
@@ -304,7 +304,7 @@ export default {
           // border-bottom: 1px solid rgba(0, 0, 0, 0.1);
           border-right: 1px solid rgba(0, 0, 0, 0.1);
           background-color: #0561A9;
-          overflow: auto;
+          overflow: hidden;
           .classname {
             cursor: pointer;
             padding-left: 22px;

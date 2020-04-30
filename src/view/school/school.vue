@@ -78,7 +78,6 @@ export default {
 
 <style scoped lang="less">
 .school-container{
-    min-width: 1200px;
     .up-part{
         position: relative;
         height: 600px;
@@ -96,9 +95,8 @@ export default {
     }
     .down-part{
         position: relative;
-        min-width: 1200px;
+        width: 100%;
         height: 549px;
-        // background-image: url(http://182.148.48.236:54321/source/images/school-down-bg.png);
         background-size: 100% 100%!important;
         .up-item-box, .center-box, .down-item-box{
             font-family:Source Han Sans CN;

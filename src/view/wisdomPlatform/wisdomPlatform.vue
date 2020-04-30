@@ -176,13 +176,15 @@ export default {
 <style scoped lang="less">
 .wisdomPlatform-container{
     user-select: none;
-    min-width: 1200px;
+    // min-width: 1200px;
     .wp-header{
         height: 600px;
         background-image: url(http://182.148.48.236:54321/source/images/wp-header-bg.png);
         background-size: 100% 100%;
     }
     .wp-systemModule{
+        // max-width: 1200px;
+        width: 100%;
         height: 600px;
         display: flex;
         justify-content: center;
@@ -200,7 +202,7 @@ export default {
             .left-line-box{
               position: absolute;
               top: 95px;
-              left: -115px;
+              left: -80px;
               .left-line{
                 position: relative;
                 transition: all .3s ease-in-out;
@@ -341,6 +343,7 @@ export default {
                 height: 300px;
                 border:1px solid rgba(213,213,213,1);
                 background-color: #fff;
+                box-sizing: border-box;
                 cursor: pointer;
                 // transition: all .3s ease-in-out;
                 
@@ -432,12 +435,15 @@ export default {
         // }
         .sa-box{
             position: relative;
+            // max-width: 1200px;
             width: 1200px;
+            margin: auto;
             display: flex;
             padding: 0 50px 0 50px;
             .sa-box-left{
                 flex: 6;
                 padding-top: 50px;
+                box-sizing: border-box;
                 ul{
                     list-style:none;
                     li{
@@ -471,11 +477,17 @@ export default {
                     }
                 }
             }
+            @media screen and (max-width: 1200px) {
+            .sa-box-left {
+                flex: 2;
+            }
+            }
             .sa-box-right{
                 flex: 4;
                 width: 508px;
                 height: 524px;
                 background-image: url(http://182.148.48.236:54321/source/images/wp-sa-img1.png);
+                background-repeat: no-repeat;
             }
         }
     }

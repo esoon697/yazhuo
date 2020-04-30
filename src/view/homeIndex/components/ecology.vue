@@ -103,7 +103,7 @@ export default {
 }
 .app {
   // 背景图片
-  height: 700px;
+  min-height: 700px;
   width: 100%;
   background-position: center center !important;
   // 标题文字

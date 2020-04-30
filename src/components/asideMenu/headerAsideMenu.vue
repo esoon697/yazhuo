@@ -174,8 +174,8 @@ export default {
           }
         },
         goPersonalCenter () {
-          let targetUrl = 'http://10.10.10.213:8082/'
-          // let targetUrl = 'http://personal.yazhuokj.com'
+          // let targetUrl = 'http://10.10.10.213:8080/'
+          let targetUrl = 'http://personal.yazhuokj.com'
           let token = localStorage.getItem('token')
           this.url = targetUrl + '?token=' + token + '&headImgUrl=' + this.headImgUrl
           console.log(this.url)
@@ -221,6 +221,11 @@ export default {
     width: 230px !important;
   }
 }
+@media screen and (max-width: 1200px) {
+  .logo {
+    margin-right: 50px !important;
+  }
+}
 .wrapper {
   position: absolute;
   top: 0;
@@ -234,8 +239,13 @@ export default {
   box-sizing: border-box;
   justify-content: space-between;
   z-index: 999;
-  min-width: 1200px;
+  // min-width: 1200px;
+  width: 100%;
   transition: background-color .5s linear;
+  @media screen and (max-width: 1200px){
+    padding: 0;
+    margin: auto;
+  }
 }
 .navBg{
   background-color: #0561A9;

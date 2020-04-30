@@ -21,12 +21,20 @@
             <img :src="[active == 1 ? m4 : m2]" />
             <span>基础教育</span>
           </div>
+          <div
+            :class="['fence-right flex-center-col', active == 2 ? 'fence-active' : '']"
+            @click="choose(2)"
+          >
+            <img :src="[active == 2 ? m6 : m5]" />
+            <span>家庭教育</span>
+          </div>
         </div>
       </div>
       <!-- tab选项卡 结束 -->
       <!-- tab内容区 开始 -->
       <profess-system v-show="active == 0"></profess-system>
       <basic-system v-show="active == 1"></basic-system>
+      <familySystem v-show="active == 2"></familySystem>
       <!-- tab内容区 结束 -->
     </div>
     <!-- 底部 -->
@@ -39,6 +47,7 @@
 <script>
 import basicSystem from "./components/basicSystem";
 import professSystem from "./components/professSystem";
+import familySystem from "./components/familySystem";
 export default {
   data() {
     return {
@@ -46,12 +55,15 @@ export default {
       m1: `${this.base + "tabm1.png"}`,
       m2: `${this.base + "tabm2.png"}`,
       m3: `${this.base + "tabm3.png"}`,
-      m4: `${this.base + "tabm4.png"}`
+      m4: `${this.base + "tabm4.png"}`,
+      m5: `${this.base + "tabm7.png"}`,
+      m6: `${this.base + "tabm8.png"}`
     };
   },
   components: {
     basicSystem,
-    professSystem
+    professSystem,
+    familySystem
   },
   methods: {
     choose(index) {
@@ -103,6 +115,11 @@ export default {
         width: 90px;
         height: 75px;
         margin-bottom: 7px;
+      }
+    }
+    @media screen and (max-width: 1200px) {
+      .fence{
+        width: 100%;
       }
     }
   }

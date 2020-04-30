@@ -192,10 +192,10 @@ export default {
   .system-content {
     background: rgba(12, 102, 192, 1);
     opacity: 0.77;
-    width: 1100px;
+    max-width: 1200px;
+    margin: 0 auto;
     height: 430px;
     background-repeat: no-repeat !important;
-    margin: 0 auto;
     padding: 83px 0;
     box-sizing: border-box;
     display: flex;
@@ -250,6 +250,11 @@ export default {
   height: 100%;
   margin: 0 auto;
   position: relative;
+}
+@media screen and (max-width: 1200px) {
+  .lesson-inner {
+    left: -80px;
+  }
 }
 .lesson-inner-wrap .lesson-inner .lesson-item {
   width: 139px;
@@ -320,7 +325,7 @@ export default {
   }
 }
 .advantage-inner {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .advantage-inner-item {
@@ -334,6 +339,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  &:last-child{
+    margin-right: 0;
+  }
 }
 .advantage-inner-item img {
   width: 64px;

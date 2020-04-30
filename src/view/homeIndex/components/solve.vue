@@ -162,9 +162,11 @@ export default {
   font-family: "microsoft yahei", "微软雅黑";
 }
 .solve {
-  height: 600px;
+  height: 650px;
   width: 100%;
   background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
   // .solvetitle {
   //   width: 100%;
   //   text-align: center;

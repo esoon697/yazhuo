@@ -10,7 +10,7 @@
         <div class="searchdetail2">
           <div class="texts" v-show="isText">
             <div class="w1">亚 卓 教 育 素 养 培 养 生 态 空 间</div>
-            <div class="w2">Vocational schools cultivate ecological space</div>
+            <div class="w2">Yazhuo Ecospace For Key Competence Development</div>
           </div>
           <div :class="'buttons ' + (isText?'':'closeBtn')" @click="isShowLay">
             <i class="iconfont iconicon-"></i>
