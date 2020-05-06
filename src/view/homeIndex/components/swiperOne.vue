@@ -90,7 +90,7 @@ export default {
 
 <style lang="less" scoped>
   .myswiper{
-    width: 1200px;
+    max-width: 1200px;
     height: 350px;
     position: relative;
     margin-top: 50px;
@@ -114,12 +114,26 @@ export default {
       cursor: pointer;
       border: 1px solid #ccc;
     }
+    @media screen and (max-width: 1200px) {
+      .left-arrow{
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        z-index: 999;
+      }
+      .right-arrow {
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 999;
+      }
+    }
     .left-arrow img, .right-arrow img{
       width: 24px;
       height: 43px;
     }
     .myswiper-inner-wrap{
-      width: 1200px;
+      max-width: 1200px;
       overflow: hidden;
         .myswiper-inner{
         display: flex;

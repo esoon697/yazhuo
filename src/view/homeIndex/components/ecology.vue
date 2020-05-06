@@ -116,8 +116,8 @@ export default {
   }
   // tab切换
   .headTitTab {
-    background: -pink;
-    width: 1200px;
+    // background: -pink;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -154,7 +154,7 @@ export default {
   .showBoxs {
     // tab切换内容
     padding-top: 30px;
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
   }
   .show1 {

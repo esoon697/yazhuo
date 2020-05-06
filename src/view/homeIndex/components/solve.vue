@@ -21,7 +21,7 @@
                   </div>
                 </div>
                 <div class="careerpoints">
-                  <div class="points" v-for="(point ,num) in menu[index]" :key="num">{{point}}</div>
+                  <div class="points" v-for="(point ,num) in menu[0][index]" :key="num">{{point}}</div>
                 </div>
               </div>
               <div class="tips">
@@ -57,7 +57,7 @@
                     </div>
                   </div>
                   <div class="careerpoints">
-                    <div class="points" v-for="(point ,num) in menu[index]" :key="num">{{point}}</div>
+                    <div class="points" v-for="(point ,num) in menu[1][index]" :key="num">{{point}}</div>
                   </div>
                 </div>
                 <div class="tips">
@@ -119,6 +119,11 @@ export default {
           })
           this.listup = this.group(this.list, 3)[0];
           this.listdown = this.group(this.list, 3)[1];
+          let menuUp = this.group(this.menu, 3)[0];
+          let menuDown = this.group(this.menu, 3)[1];
+          this.menu = []
+          this.menu.push(menuUp)
+          this.menu.push(menuDown)
         }
       })
     },
