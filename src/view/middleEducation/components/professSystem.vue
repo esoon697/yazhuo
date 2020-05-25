@@ -85,32 +85,16 @@
       <partTitle :isWhite='false' :titleText="'亮点优势'"/>
       <div class="advantage-inner flex-center-y">
         <!-- 1/4海量资源 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'linagfl1.png'" />
-          <span>海量资源</span>
+        <div class="advantage-inner-item" v-for="(advantage, index) in advantageList" :key="index">
+          <img :src="advantage.url" />
+          <span>{{advantage.title}}</span>
           <div class="line"></div>
-          <p>汇集近千个精心打磨的教学设计、丰富的案例、有趣的活动、大量的拓展资源等，满足教师课前备课、课中授课以及学生课后拓展学习、提升自我素养的需求。</p>
-        </div>
-        <!-- 2/4权威专家 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'linagfl2.png'" />
-          <span>权威专家</span>
-          <div class="line"></div>
-          <p>由中国人民大学心理研究所所长俞国良教授、北京师范大学公民与道德教育研究中心主任檀传宝教授、华东师范大学职业教育与成人教育研究所徐国庆教授、中国职教学会德育工作委员会副主任汪永智教授领衔，北大、清华、北师大、人民大学、中国教育科学研究院、华东师大、北航、电子科大、华南理工、西南大学等50余位知名专家学者教育科技机构国内、众多中职德育领域课程研究与课。</p>
-        </div>
-        <!-- 3/4系统科学 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'linagfl3.png'" />
-          <span>系统科学</span>
-          <div class="line"></div>
-          <p>遵照教育部颁发的《中等职业学校公共基础课课程方案》、《中国职业教育学生发展核心素养》等文件纲领要求，根据中职学生的身心特点和职业发展需求设计，适应新时代发展趋势，通过高质量、系统性的课程资源，提高中等职业学校德育、公共基础课及职业素养建设水平。</p>
-        </div>
-        <!-- 4/4信息化学习 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'linagfl4.png'" />
-          <span>信息化学习</span>
-          <div class="line"></div>
-          <p>坚持以学定教，结合学习平台（手机端、PC端），满足教师和学生在线学习、在线课程建设、教学管理等功能，促进广大中职学校教育信息化的发展。</p>
+          <a-popover placement="bottom">
+            <template slot="content">
+              <p style="width: 300px">{{advantage.content}}</p>
+            </template>
+            <p>{{advantage.content}}</p>
+          </a-popover>
         </div>
       </div>
     </div>
@@ -121,7 +105,30 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      advantageList: [
+        {
+          url: this.base+'linagfl1.png',
+          title: '海量资源',
+          content: '汇集近千个精心打磨的教学设计、丰富的案例、有趣的活动、大量的拓展资源等，满足教师课前备课、课中授课以及学生课后拓展学习、提升自我素养的需求。',
+        },
+        {
+          url: this.base+'linagfl2.png',
+          title: '权威专家',
+          content: '由中国人民大学心理研究所所长俞国良教授、北京师范大学公民与道德教育研究中心主任檀传宝教授、华东师范大学职业教育与成人教育研究所徐国庆教授、中国职教学会德育工作委员会副主任汪永智教授领衔，北大、清华、北师大、人民大学、中国教育科学研究院、华东师大、北航、电子科大、华南理工、西南大学等50余位知名专家学者教育科技机构国内、众多中职德育领域课程研究与课。',
+        },
+        {
+          url: this.base+'linagfl3.png',
+          title: '系统科学',
+          content: '遵照教育部颁发的《中等职业学校公共基础课课程方案》、《中国职业教育学生发展核心素养》等文件纲领要求，根据中职学生的身心特点和职业发展需求设计，适应新时代发展趋势，通过高质量、系统性的课程资源，提高中等职业学校德育、公共基础课及职业素养建设水平。',
+        },
+        {
+          url: this.base+'linagfl4.png',
+          title: '信息化学习',
+          content: '坚持以学定教，结合学习平台（手机端、PC端），满足教师和学生在线学习、在线课程建设、教学管理等功能，促进广大中职学校教育信息化的发展。',
+        },
+      ]
+    };
   }
 };
 </script>
@@ -361,6 +368,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   &:last-child{
     margin-right: 0;
   }
@@ -387,6 +395,11 @@ export default {
   overflow: hidden;
   text-align: justify;
   color: #666666;
+  max-height: 100%;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
 }
 /* 1600px */
 @media (max-width: 1600px) {

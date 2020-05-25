@@ -48,7 +48,7 @@
         </div>
         <div class="onebox onebox3">
           <p class="p1">
-            <span class="s1">钉钉直播群 :</span>
+            <span class="s1">钉钉客服 :</span>
             <span class="s2">
               <i class="dd" :style="{background:`url(${this.base+'iconding.png'})`}"></i>
             </span>

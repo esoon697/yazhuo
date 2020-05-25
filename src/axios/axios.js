@@ -21,6 +21,7 @@ if (process.env.NODE_ENV == 'development') {
 } else if (process.env.NODE_ENV == 'production') {
   // build生产环境
   config.baseURL = 'http://api.yazhuokj.com'
+  // config.baseURL = 'http://api.yazhuo.com'
   // config.baseURL = 'http://182.148.48.236:23432'
 }
 

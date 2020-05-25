@@ -33,6 +33,14 @@
 </template>
 <script>
 import {mapState} from 'vuex'
+let targetURL = null
+if (process.env.NODE_ENV == 'development') {
+  // dev开发环境
+  targetURL = 'http://10.10.10.213:8080'
+} else if (process.env.NODE_ENV == 'production') {
+  // build生产环境
+  targetURL = 'http://personal.yazhuokj.com'
+}
 export default {
   data() {
     return {
@@ -64,7 +72,7 @@ export default {
           {
               id: "a04",
               url: "/solveCase",
-              name: "解决方案",
+              name: "专题项目",
               children: []
           },
           {
@@ -174,10 +182,8 @@ export default {
           }
         },
         goPersonalCenter () {
-          // let targetUrl = 'http://10.10.10.213:8080/'
-          let targetUrl = 'http://personal.yazhuokj.com'
           let token = localStorage.getItem('token')
-          this.url = targetUrl + '?token=' + token + '&headImgUrl=' + this.headImgUrl
+          this.url = targetURL + '?token=' + token + '&headImgUrl=' + this.headImgUrl
           console.log(this.url)
           this.checkToken()
         },

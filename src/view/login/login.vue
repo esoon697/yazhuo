@@ -63,10 +63,12 @@ export default {
       username: "", //账号
       password: "", //密码
       redirectPath: '', // 重定向路径
-      userAgent: ''  // 浏览器属于pc还是移动端
+      userAgent: '',  // 浏览器属于pc还是移动端
+      orient: null
     };
   },
   created() {
+    this.init()
     this.checkToken()
     this.redirectPath = this.$route.query.redirectPath
     this.judgeUserType()
@@ -74,6 +76,9 @@ export default {
   methods: {
     init () {
       this.orient = this.$route.query.orient
+      if (this.orient) {
+        localStorage.setItem('orient', this.orient)
+      }
     },
     // 验证token是否失效
     checkToken () {
@@ -85,7 +90,14 @@ export default {
         jwt: token
       }).then(res => {
         if (res.code == 200 && res.data == 0) {
-          this.$router.push('/home')
+          // this.orient = this.$route.query.orient
+          this.orient = localStorage.getItem('orient')
+          if (this.orient) {
+            window.location.href = this.orient + '?token=' + token
+            localStorage.removeItem('orient')
+          }else{
+            this.$router.push('/home')
+          }
         }
       })
     },
@@ -108,10 +120,12 @@ export default {
         if (res.code == 200){
           let token = res.data.authorization
           localStorage.setItem('token', token)
+          this.orient = localStorage.getItem('orient')
           //  登录成功之后如果有重定向路径则跳转过去，没有则跳转首页
-          if (this.redirectPath) {
-            this.$router.push(this.redirectPath)
-            // this.$router.push(this.orient)
+          if (this.orient) {
+            // this.$router.push(this.redirectPath)
+            window.location.href = this.orient + '?token=' + token
+            localStorage.removeItem('orient')
           } else {
             this.$router.push('/home')
           }
@@ -174,7 +188,8 @@ button {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background-size: 100% 100% !important;
+  background-size: cover !important;
+  /* background-size: 100% 100% !important; */
   position: relative;
   background: #1e9fff;
 }

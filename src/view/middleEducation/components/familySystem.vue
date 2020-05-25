@@ -101,33 +101,16 @@
       <!-- <p class="advantage-title flex-center">亮/点/优/势</p> -->
       <partTitle :isWhite='false' :titleText="'亮点优势'"/>
       <div class="advantage-inner flex-center-y">
-        <!-- 1/4海量资源 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr1.png'" />
-          <span>海量资源</span>
+        <div class="advantage-inner-item" v-for="(advantage, index) in advantageList" :key="index">
+          <img :src="advantage.url" />
+          <span>{{advantage.title}}</span>
           <div class="line"></div>
-          <p>共438集，包含5000分钟微课视频，涉及领域广、内容丰富，全方位地培养孩子的综合素养。</p>
-        </div>
-        <!-- 2/4权威专家 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr2.png'" />
-          <span>权威性</span>
-          <div class="line"></div>
-          <p>由国内顶尖专家和20余省近百位优秀名师遵照国际通用的《21世纪核心素养》的内容研发。</p>
-        </div>
-        <!-- 3/4系统科学 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr3.png'" />
-          <span>实用性</span>
-          <div class="line"></div>
-          <p>根据孩子的心理行为和智力发展水平进行设计，帮助家长有效开展家庭教育。</p>
-        </div>
-        <!-- 4/4信息化学习 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr4.png'" />
-          <span>顺应“碎片化”学习习惯</span>
-          <div class="line"></div>
-          <p>10-20分钟不等时长的视频，多平台投放，实现处处能学、时时可学。</p>
+          <a-popover placement="bottom">
+            <template slot="content">
+              <p style="width: 300px">{{advantage.content}}</p>
+            </template>
+            <p>{{advantage.content}}</p>
+          </a-popover>
         </div>
       </div>
     </div>
@@ -138,7 +121,30 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      advantageList: [
+        {
+          url: this.base+'liangfr1.png',
+          title: '海量资源',
+          content: '共438集，包含5000分钟微课视频，涉及领域广、内容丰富，全方位地培养孩子的综合素养。',
+        },
+        {
+          url: this.base+'liangfr2.png',
+          title: '权威性',
+          content: '由国内顶尖专家和20余省近百位优秀名师遵照国际通用的《21世纪核心素养》的内容研发。',
+        },
+        {
+          url: this.base+'liangfr3.png',
+          title: '实用性',
+          content: '根据孩子的心理行为和智力发展水平进行设计，帮助家长有效开展家庭教育。',
+        },
+        {
+          url: this.base+'liangfr4.png',
+          title: '顺应“碎片化”学习习惯',
+          content: '10-20分钟不等时长的视频，多平台投放，实现处处能学、时时可学。',
+        },
+      ]
+    };
   }
 };
 </script>
@@ -372,6 +378,11 @@ export default {
   overflow: hidden;
   text-align: justify;
   color: #666666;
+  max-height: 100%;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
 }
 /* 1600px */
 @media (max-width: 1600px) {

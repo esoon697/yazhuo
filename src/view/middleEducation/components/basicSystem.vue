@@ -95,32 +95,16 @@
       <partTitle :isWhite='false' :titleText="'亮点优势'"/>
       <div class="advantage-inner flex-center-y">
         <!-- 1/4海量资源 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr1.png'" />
-          <span>海量资源</span>
+        <div class="advantage-inner-item" v-for="(advantage, index) in advantageList" :key="index">
+          <img :src="advantage.url" />
+          <span>{{advantage.title}}</span>
           <div class="line"></div>
-          <p>四大产品共728学时，包含6000分钟微课视频，728个资源包，汇集近千个精心打磨的教学设计、丰富的案例、有趣的活动、大量的拓展资源、AR互动游戏等，满足教师课前备课、课中授课以及学生课后拓展学习的需求。</p>
-        </div>
-        <!-- 2/4权威专家 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr2.png'" />
-          <span>权威专家</span>
-          <div class="line"></div>
-          <p>由“中国学生发展核心素养”项目负责人林崇德教授担任总顾问，《义务教育小学科学》课标组负责人胡卫平领衔，STEAM教育评价专家会员36位资深专家及国内50多位基础教育领域的课程研究与课程教学的专家及近200位一线优秀教师共同研发。</p>
-        </div>
-        <!-- 3/4系统科学 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr3.png'" />
-          <span>系统科学</span>
-          <div class="line"></div>
-          <p>根据学前儿童及中小学生认知水平、身心发展特点分学段进阶式设计，通过高质量、系统性的课程资源库建设，弥补STEAM教育、素养类课程师资的缺乏，深化基础教育课程的广度和深度。</p>
-        </div>
-        <!-- 4/4信息化学习 -->
-        <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr4.png'" />
-          <span>信息化学习</span>
-          <div class="line"></div>
-          <p>坚持以学定教，结合学习平台（手机端、PC端）、AR技术等信息化手段实现教师、学生、家长之间的互动与协作。</p>
+          <a-popover placement="bottom">
+            <template slot="content">
+              <p style="width: 300px">{{advantage.content}}</p>
+            </template>
+            <p>{{advantage.content}}</p>
+          </a-popover>
         </div>
       </div>
     </div>
@@ -131,7 +115,30 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      advantageList: [
+        {
+          url: this.base+'liangfr1.png',
+          title: '海量资源',
+          content: '四大产品共728学时，包含6000分钟微课视频，728个资源包，汇集近千个精心打磨的教学设计、丰富的案例、有趣的活动、大量的拓展资源、AR互动游戏等，满足教师课前备课、课中授课以及学生课后拓展学习的需求。',
+        },
+        {
+          url: this.base+'liangfr2.png',
+          title: '权威专家',
+          content: '由“中国学生发展核心素养”项目负责人林崇德教授担任总顾问，《义务教育小学科学》课标组负责人胡卫平领衔，STEAM教育评价专家会员36位资深专家及国内50多位基础教育领域的课程研究与课程教学的专家及近200位一线优秀教师共同研发。',
+        },
+        {
+          url: this.base+'liangfr3.png',
+          title: '系统科学',
+          content: '根据学前儿童及中小学生认知水平、身心发展特点分学段进阶式设计，通过高质量、系统性的课程资源库建设，弥补STEAM教育、素养类课程师资的缺乏，深化基础教育课程的广度和深度。',
+        },
+        {
+          url: this.base+'liangfr4.png',
+          title: '信息化学习',
+          content: '坚持以学定教，结合学习平台（手机端、PC端）、AR技术等信息化手段实现教师、学生、家长之间的互动与协作。',
+        },
+      ]
+    };
   }
 };
 </script>
@@ -365,6 +372,11 @@ export default {
   overflow: hidden;
   text-align: justify;
   color: #666666;
+  max-height: 100%;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
 }
 /* 1600px */
 @media (max-width: 1600px) {

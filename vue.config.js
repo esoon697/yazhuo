@@ -80,7 +80,7 @@ module.exports = {
     parallel: require('os').cpus().length > 1,
     devServer: {
         disableHostCheck: true,
-        port: 4399,
+        port: 5000,
         open: true,
         compress: false,
         proxy: {

@@ -8,86 +8,22 @@
     <!-- 图文列表 开始 -->
     <div class="solveWid100">
       <div class="solveList">
-        <a href="javascript:;" class="boxlink anisca">
+        <a href="javascript:;" class="boxlink anisca" v-for="(solve, index) in solveList" :key="index">
           <p class="p1">
-            <img :src="this.base+'solveli1.png'" />
+            <img :src="solve.url" />
           </p>
-          <p class="p2 ellipsis">师资培训</p>
-          <p
+          <p class="p2 ellipsis">{{solve.title}}</p>
+          <p class="p-sub ellipsis">{{solve.subtitle}}</p>
+          <!-- <p
             class="p3 ellipsis-two"
-          >steam能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。steam能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。</p>
-        </a>
-        <a href="javascript:;" class="boxlink anisca">
-          <p class="p1">
-            <img :src="this.base+'solveli2.png'" />
-          </p>
-          <p class="p2 ellipsis">校园文化</p>
-          <p
-            class="p3 ellipsis-two"
-          >综合实践活动能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。综合实践活动能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。</p>
-        </a>
-        <a href="javascript:;" class="boxlink anisca">
-          <p class="p1">
-            <img :src="this.base+'solveli3.png'" />
-          </p>
-          <p class="p2 ellipsis">课程建设</p>
-          <p
-            class="p3 ellipsis-two"
-          >小猛犸能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。小猛犸能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。</p>
-        </a>
-        <a href="javascript:;" class="boxlink anisca">
-          <p class="p1">
-            <img :src="this.base+'solveli4.png'" />
-          </p>
-          <p class="p2 ellipsis">平台定制</p>
-          <p
-            class="p3 ellipsis-two"
-          >steam能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。steam能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。</p>
-        </a>
-        <a href="javascript:;" class="boxlink anisca">
-          <p class="p1">
-            <img :src="this.base+'solveli5.png'" />
-          </p>
-          <p class="p2 ellipsis">赛事辅导</p>
-          <p
-            class="p3 ellipsis-two"
-          >综合实践活动能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。综合实践活动能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。</p>
-        </a>
-        <a href="javascript:;" class="boxlink anisca">
-          <p class="p1">
-            <img :src="this.base+'solveli6.png'" />
-          </p>
-          <p class="p2 ellipsis">人才培养</p>
-          <p
-            class="p3 ellipsis-two"
-          >小猛犸能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。小猛犸能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。</p>
-        </a>
-        <a href="javascript:;" class="boxlink anisca">
-          <p class="p1">
-            <img :src="this.base+'solveli7.png'" />
-          </p>
-          <p class="p2 ellipsis">双师课堂</p>
-          <p
-            class="p3 ellipsis-two"
-          >steam能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。steam能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。</p>
-        </a>
-        <a href="javascript:;" class="boxlink anisca">
-          <p class="p1">
-            <img :src="this.base+'solveli8.png'" />
-          </p>
-          <p class="p2 ellipsis">信息化提升</p>
-          <p
-            class="p3 ellipsis-two"
-          >综合实践活动能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。综合实践活动能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。</p>
-        </a>
-        <a href="javascript:;" class="boxlink anisca">
-          <p class="p1">
-            <img :src="this.base+'solveli9.png'" />
-          </p>
-          <p class="p2 ellipsis">名师解码名师解码名师解码名师解码名师解码名师解码名师解码</p>
-          <p
-            class="p3 ellipsis-two"
-          >小猛犸能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。小猛犸能力和核心素养是统一的，相互促进的，是一种跨学科整合能力。</p>
+          >{{solve.content}}</p> -->
+          <a-popover placement="bottom">
+            <template slot="content">
+              <p style="width: 300px; textIndent: 20px">{{solve.content}}</p>
+              <p style="width: 300px; textIndent: 20px">{{solve.content1}}</p>
+            </template>
+            <p class="p3 ellipsis-two">{{solve.content}}</p>
+          </a-popover>
         </a>
       </div>
     </div>
@@ -102,7 +38,38 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      solveList: [
+        {
+          url: this.base+'solveli1.jpg',
+          title: '教育部“STEAM教育课程教学改革”项目:',
+          subtitle: '小学STEAM教育整体解决方案',
+          content: '该方案包含由教材、实验活动、实验材料、数字教育资源库和线下增值服务五个部分，帮助学生运用跨学科知识及思维解决生活中的实际问题。',
+          content1: '该项目受到教育部基础教育课程教材发展中心的认可，目前已在全国各课改实验区113所学校完成了全面实验教学。'
+        },
+        {
+          url: this.base+'solveli2.jpg',
+          title: '中等职业教育特色品牌学校建设创新课题:',
+          subtitle: '中职学生职业素养培养示范学校建设方案',
+          content: '该项目基于华东师范大学职成教研究所研究课题“中国职业教育学生发展核心素养”的核心思想，从学生、教师、学校三个层面入手，以两年为建设周期，帮助学生全面提高职业素养，助力学校在中等职业教育领域树立良好的特色品牌。',
+          content1: '该项目受到教育部基础教育课程教材发展中心的认可，目前已在全国各课改实验区113所学校完成了全面实验教学。',
+        },
+        {
+          url: this.base+'solveli3.jpg',
+          title: '中职学校班主任工作创新改革实验校项目:',
+          subtitle: '班主任成长梦工场',
+          content: '该方案在北京师范大学公民与道德教育研究中心、广东省中职学校德育研究会的指导下开发，包含线下培训、数字教育资源、实务工具包、教学管理软件、评测系统以及数字教学中心，全方位提升中职学校班主任的职业能力。',
+          content1: '该项目受到教育部基础教育课程教材发展中心的认可，目前已在全国各课改实验区113所学校完成了全面实验教学。目前，该项目已有60余所中职学校参与。'
+        },
+        {
+          url: this.base+'solveli4.jpg',
+          title: '全国技工院校德育工作创新发展计划:',
+          subtitle: '班主任工作整体解决方案',
+          content: '该项目在中国职业技术教育学会德育工作委员会副主任、班主任与师德建设中心主任汪永智教授指导下研发，包括线下培训方案、班主任工具合集、数字教育资源、在线课程、评测系统、管理系统、网络平台七大模块，解决技工学校德育课程资源缺乏、班主任队伍质量等问题。',
+          content1: '该项目受到教育部基础教育课程教材发展中心的认可，目前已在全国各课改实验区113所学校完成了全面实验教学。',
+        }
+      ]
+    };
   }
 };
 </script>
@@ -154,9 +121,6 @@ img {
     &:nth-child(3n) {
       margin-right: 0;
     }
-    &:hover {
-      color: #0182fa;
-    }
     p {
       width: 100%;
     }
@@ -170,7 +134,8 @@ img {
       }
     }
     .p2,
-    .p3 {
+    .p3,
+    .p-sub {
       box-sizing: content-box !important;
       width: 90%;
       padding-left: 5%;
@@ -179,14 +144,29 @@ img {
     }
     .p2 {
       text-align: center;
-      font-size: 25px;
+      font-size: 18px;
       padding-top: 20px;
       padding-bottom: 20px;
+      font-weight: bold;
     }
     .p3 {
       text-align: justify;
       line-height: 30px;
       height: 60px;
+    }
+    .p-sub{
+      display: flex;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      transform: translateY(-35%);
+      color: #666;
+    }
+    &:hover {
+      color: #0182fa;
+      .p-sub{
+        color: #0182fa;
+      }
     }
   }
 }

@@ -34,7 +34,10 @@ const api = {
   getEcologyInfm: data => post('/info/yzInformation/queryEcologyInfm', data),
 
   // 首页获取专家团队和合作学校的数据
-  getTeamAndSchool: data => post('/info/yzInformation/queryEcologyInfmSubList', data)
+  getTeamAndSchool: data => post('/info/yzInformation/queryEcologyInfmSubList', data),
+
+  // 首页获取生态共建表单
+  addCooperationForm: data => post('/info/cooperationForm/add', data)
 
 }
 

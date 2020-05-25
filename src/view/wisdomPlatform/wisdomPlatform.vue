@@ -76,26 +76,42 @@
                           <li>
                               <!-- <div class="little-icon"></div> -->
                               <img :src="base + 'wp-sa-icon2.png'" alt="">
-                              <span>操作简单</span>
+                              <span>专业、权威的专家团队及一线名师</span>
                           </li>
                           <li>
                               <!-- <div class="little-icon"></div> -->
                               <img :src="base + 'wp-sa-icon3.png'" alt="">
-                              <span>交互教学</span>
+                              <span>量身打造符合学生成长轨迹的在线课程资源</span>
                           </li>
                           <li>
                               <!-- <div class="little-icon"></div> -->
                               <img :src="base + 'wp-sa-icon4.png'" alt="">
-                              <span>安全稳定</span>
+                              <span>基于六大核心理念开发数字教学中心</span>
                           </li>
                           <li>
                               <!-- <div class="little-icon"></div> -->
                               <img :src="base + 'wp-sa-icon5.png'" alt="">
-                              <span>一站式</span>
+                              <span>满足学校教、学、考、评、管、生涯全场景需求</span>
+                          </li>
+                          <li>
+                              <!-- <div class="little-icon"></div> -->
+                              <img :src="base + 'wp-sa-icon6.png'" alt="">
+                              <span>以OMO模式完成线上资源与线下教学的深度融合</span>
+                          </li>
+                          <li>
+                              <!-- <div class="little-icon"></div> -->
+                              <img :src="base + 'wp-sa-icon7.png'" alt="">
+                              <span>满足学校课前准备、课堂教学、课后拓展、教学评价各阶段功能需求，教学阶段全覆盖</span>
+                          </li>
+                          <li>
+                              <!-- <div class="little-icon"></div> -->
+                              <img :src="base + 'wp-sa-icon8.png'" alt="">
+                              <span>联合阿里钉钉提供生态化校园服务，打造学校智能管理解决方案</span>
                           </li>
                       </ul>
                   </div>
                   <div class="sa-box-right"></div>
+                  <!-- <img class="sa-box-right" src="http://182.148.48.236:54321/source/images/wp-sa-img1.png"> -->
               </div>
           </div>
       </div>
@@ -114,38 +130,38 @@ export default {
             cfList: [
               {
                 url: this.base + 'wp-cf-icon1.png',
-                name: '智能化教学',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                name: '个人空间',
+                content: '教师及学生可通过个人空间完成教与学的全部过程，并形成数据沉淀',
                 lineColor: '#007AB7'
               },
               {
                 url: this.base + 'wp-cf-icon2.png',
-                name: '一体化管理',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                name: '海量资源库',
+                content: '课程资源由顶尖专家库及庞大的一线名师团队合作研发，具有独一性及权威性',
                 lineColor: '#00B79B'
               },
               {
                 url: this.base + 'wp-cf-icon3.png',
-                name: '素材库',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                name: '高级建课',
+                content: '用户根据课程内容利用丰富的资源库灵活建设自己的特色化课程',
                 lineColor: '#008EB7'
               },
               {
                 url: this.base + 'wp-cf-icon4.png',
-                name: '选择式备课',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                name: '在线学习',
+                content: '学生根据教师课程设置内容参与线上学习，学习过程数据全跟踪，关键数据分析可视化',
                 lineColor: '#6139B2'
               },
               {
                 url: this.base + 'wp-cf-icon5.png',
-                name: '生涯教育',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                name: '素养评测',
+                content: '逐步积累并完善素养培养评价标准，并从多维度对学校、教师、学生进行专业化测试',
                 lineColor: '#AA3FD1'
               },
               {
                 url: this.base + 'wp-cf-icon6.png',
                 name: '大数据中心',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                content: '对教学过程及评测结果所沉淀的大数据进行分析，并形成可视化图表',
                 lineColor: '#EC4F8A'
               }
             ],
@@ -401,9 +417,7 @@ export default {
     }
     
     .wp-specialAdvantage{
-        height: 683px;
         background-color: #F4F4F4;
-        height: 737px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -437,39 +451,49 @@ export default {
             position: relative;
             // max-width: 1200px;
             width: 1200px;
-            margin: auto;
+            margin: 0 auto;
             display: flex;
-            padding: 0 50px 0 50px;
+            padding-bottom: 50px;
+            box-sizing: border-box;
             .sa-box-left{
-                flex: 6;
+                flex: 3;
                 padding-top: 50px;
                 box-sizing: border-box;
+                margin-right: 30px;
                 ul{
                     list-style:none;
                     li{
                         margin-bottom: 20px;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
                         img{
-                            width: 24px;
+                            width: 20px;
                             // height: 30px;
                             margin-right: 5px;
                             vertical-align: middle;
+                            transform: translateY(5%);
                         }
                         span{
-                            width:106px;
-                            height:25px;
-                            font-size:26px;
+                            display: inline-block;
+                            // width:280px;
+                            font-size:18px;
                             font-family:Adobe Heiti Std;
                             font-weight:normal;
                             color:rgba(51,51,51,1);
-                            overflow: hidden;
-                            white-space: nowrap;
-                            text-overflow: ellipsis;
+                            // overflow: hidden;
+                            // white-space: nowrap;
+                            // text-overflow: ellipsis;
                             vertical-align: middle;
                         }
                     }
                 }
                 .left-title{
+                    display: block;
                     margin-bottom: 60px;
+                    img{
+                        transform: translateY(0%);
+                    }
                     .line{
                         width: 130px;
                         border-top: 10px solid #2F2E41;
@@ -478,12 +502,12 @@ export default {
                 }
             }
             @media screen and (max-width: 1200px) {
-            .sa-box-left {
-                flex: 2;
-            }
+                .sa-box-left {
+                    flex: 2;
+                }
             }
             .sa-box-right{
-                flex: 4;
+                flex: 3;
                 width: 508px;
                 height: 524px;
                 background-image: url(http://182.148.48.236:54321/source/images/wp-sa-img1.png);

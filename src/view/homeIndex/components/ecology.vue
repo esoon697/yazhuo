@@ -30,8 +30,8 @@
         <div class="allbox">
           <div class="onebox">
             <p class="pdes">产品咨询 OR 代理咨询</p>
-            <select class="inpval">
-              <option value="" v-for="(item, index) in optionList" :key="index">{{item}}</option>
+            <select class="inpval" v-model="selectVal">
+              <option :value="item" v-for="(item, index) in optionList" :key="index">{{item}}</option>
             </select>
           </div>
           <div class="onebox">
@@ -43,7 +43,7 @@
             <input type="tel" class="inpval" placeholder="请输入" v-model="phone"/>
           </div>
           <div class="onebox subbox">
-            <button type="button" class="subbtn">提交信息</button>
+            <button type="button" class="subbtn" @click.prevent="addCooperationForm">提交信息</button>
           </div>
         </div>
       </div>
@@ -65,7 +65,8 @@ export default {
       phone: "",
       name: "",
       sel: "",
-      optionList: ['菜单1','菜单2','菜单3']
+      selectVal: '',
+      optionList: []
     };
   },
   components: {
@@ -75,6 +76,7 @@ export default {
   created() {
     this.$nextTick(() => {
       this.getmessage();
+      this.getOptionList()
     });
   },
   methods: {
@@ -91,8 +93,38 @@ export default {
     // tab切换
     changeTab(index) {
       this.isShowTab = index;
+    },
+    // 产品咨询 OR 代理咨询列表
+    getOptionList () {
+      this.$api.getInfmByParams({
+        infmTypeId: 13
+      }).then(res => {
+        if (res.code == 200) {
+          console.log(res.data)
+          this.optionList = res.data.list.map(e => {
+            return e.infmTitle
+          })
+        }
+      })
+    },
+    addCooperationForm () {
+      if (this.phone && this.name && this.selectVal) {
+        this.$api.addCooperationForm({
+          consultation: this.selectVal,
+          customerName: this.name,
+          customerNumber: this.phone
+        }).then(res => {
+          if (res.code == 200) {
+            this.$message.info('提交成功')
+            this.phone = ''
+            this.name = ''
+            this.selectVal = ''
+          }
+        })
+      } else {
+        this.$message.warn('咨询类型、姓名、联系方式不能为空')
+      }
     }
-    
   }
 };
 </script>
