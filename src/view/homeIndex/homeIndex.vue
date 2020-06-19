@@ -47,7 +47,7 @@ export default {
     // ...mapState(['btnShow']),
   },
   mounted () {
-    // this.dingdingInt()
+    this.dingdingInt()
     this.init()
     // this.getHeadImgUrl()
   },
@@ -113,24 +113,83 @@ export default {
          })
       }
     },
-    // dingdingInt () {
-    //   let dd = this.$dd
-    //   dd.ready(function () {
-    //     dd.runtime.permission.requestAuthCode({
-    //         corpId: "ding5f7acb9ee337eab8a39a90f97fcb1e09",
-    //         onSuccess: function(result) {
-    //           console.log(result)
-    //         /*{
-    //             code: 'hYLK98jkf0m' //string authCode
-    //         }*/
-    //         },
-    //         onFail : function(err) {
-    //           alert('error' + err)
-    //           console.log(err)
-    //         }
-    //     })
-    //   })
-    // }
+    _getDingCode() {
+      const host = window.location.host
+      let ipUrl = 'http://' + host + '/#/home-page'
+            dd.ready(function() {
+                var corpId, strs
+                var url = location.search
+                if (url.indexOf('?') !== -1) {
+                    var str = url.substr(1)
+                    strs = str.split('=')
+                    corpId = strs[1]
+                }
+                dd.runtime.permission.requestAuthCode({
+                    corpId: corpId,
+                    onSuccess: function(result) {
+                        let code = result.code
+                        let flag = 1
+                        sessionStorage.clear()
+                        postDingCode(corpId, code, flag).then((res) => {
+                            let unionid = res.unionid
+                            let flag = res.flag
+                            sessionStorage.setItem('unionid', unionid)
+                            sessionStorage.setItem('bindLogin', flag)
+                            window.location.href = ipUrl
+                        })
+                    },
+                    onFail: function(err) {
+                        alert(JSON.stringify(err))
+                    }
+                })
+            })
+            dd.error((error) => {
+                alert('error')
+                alert(`dd error: ${JSON.stringify(error)}`)
+            })
+        },
+    dingdingInt () {
+      let dd = this.$dd
+      const host = window.location.host
+      this.ipUrl = 'http://' + host + '/home'
+      let that = this
+      dd.ready(function () {
+        console.log('location----------', location)
+        var corpId, strs
+        var url = location.search
+        if (url.indexOf('?') !== -1) {
+            var str = url.substr(1)
+            strs = str.split('=')
+            that.corpId = strs[1]
+            console.log('that.corpIdddddd', that.corpId)
+        }
+        dd.runtime.permission.requestAuthCode({
+            corpId: that.corpId,
+            // corpId: 'ding9216e35940e361e5bc961a6cb783455b',
+            onSuccess: function(result) {
+              console.log('res:::::', result)
+              that.code = result.code
+              that.postDingLogin()
+            },
+            onFail : function(err) {
+              console.log(err)
+            }
+        })
+      })
+    },
+    postDingLogin () {
+      this.$api.postDingLogin({
+        code: this.code,
+        corpId: this.corpId,
+        // corpId: 'ding9216e35940e361e5bc961a6cb783455b',
+        flag: 1
+      }).then(res => {
+        if (res.code === 200) {
+          console.log(res)
+          // window.location.href = this.ipUrl
+        }
+      })
+    }
   }
 }
 </script>

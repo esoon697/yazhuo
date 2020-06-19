@@ -37,7 +37,10 @@ const api = {
   getTeamAndSchool: data => post('/info/yzInformation/queryEcologyInfmSubList', data),
 
   // 首页获取生态共建表单
-  addCooperationForm: data => post('/info/cooperationForm/add', data)
+  addCooperationForm: data => post('/info/cooperationForm/add', data),
+
+  // 钉钉code免登
+  postDingLogin: data => get('http://cgh.yazhuokj.com/login/ding', data)
 
 }
 
