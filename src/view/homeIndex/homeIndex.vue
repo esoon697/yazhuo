@@ -48,7 +48,7 @@ export default {
   },
   mounted () {
     this.dingdingInt()
-    this.init()
+    // this.init()
     // this.getHeadImgUrl()
   },
   methods:{
@@ -186,6 +186,7 @@ export default {
       }).then(res => {
         if (res.code === 200) {
           console.log(res)
+          localStorage.setItem('token', res.message)
           // window.location.href = this.ipUrl
         }
       })

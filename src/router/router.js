@@ -8,7 +8,7 @@ import solveCase from '@/view/solveCase/solveCase.vue'
 
 export const links = [
     // 微信头像那个问题应该是你哪里没写对，你可以在测试上看img的src是什么，如果不显示，就看network里面图片的格式有没有问题。
-    { path: '*', redirect: '/home' },
+    { path: '/portal', redirect: '/home' },
     {
         title: '首页',
         path: '/home',

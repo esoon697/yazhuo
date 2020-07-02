@@ -11,7 +11,7 @@ function resolve(dir) {
     return path.join(__dirname, dir)
 }
 module.exports = {
-    publicPath: './',
+    publicPath: '/portal/',
     outputDir: 'doctorUnit',
     lintOnSave: true,
     configureWebpack: {

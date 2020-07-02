@@ -40,7 +40,7 @@ const api = {
   addCooperationForm: data => post('/info/cooperationForm/add', data),
 
   // 钉钉code免登
-  postDingLogin: data => get('http://cgh.yazhuokj.com/login/ding', data)
+  postDingLogin: data => get('/dinglogin/login/ding', data)
 
 }
 
